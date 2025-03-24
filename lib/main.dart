@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:music_player/pages/home_page.dart';
 import 'package:music_player/theme/light_mod.dart';
 import 'package:music_player/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
           routes: {},
         );
       },
-      child: AuthGate(),
+      child: HomePage(),
     );
   }
 }
