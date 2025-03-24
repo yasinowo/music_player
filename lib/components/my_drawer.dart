@@ -36,7 +36,7 @@ class MyDrawer extends StatelessWidget {
                 size: 24.sp,
                 color: color.primary,
               ),
-              onLongPress: () {
+              onTap: () {
                 Navigator.pop(context);
               },
               // ...
@@ -56,7 +56,7 @@ class MyDrawer extends StatelessWidget {
                 size: 24.sp,
                 color: color.primary,
               ),
-              onLongPress: () {
+              onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
                     context,

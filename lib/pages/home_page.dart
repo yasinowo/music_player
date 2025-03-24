@@ -7,11 +7,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
       drawer: MyDrawer(),
       appBar: AppBar(
         title: Text('Home'),
       ),
-      body: SafeArea(child: Text('data')),
+      body: SafeArea(
+          child: Container(
+        width: 200,
+        height: 200,
+        color: Colors.red,
+      )),
     );
   }
 }
