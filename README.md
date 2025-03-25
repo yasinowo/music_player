@@ -4,10 +4,10 @@
 ## 📸 اسکرین‌شات‌ها  
 
 <p align="center">
-  <img src="./assets/screenshots/image1.jpg" alt="login" width="300" />  
-  <img src="./assets/screenshots/image2.jpg" alt="register" width="300" />
-  <img src="./assets/screenshots/image3.jpg" alt="cart" width="300" />
-<img src="./assets/screenshots/image4.jpg" alt="cart" width="300" />
+  <img src="./assets/screenshots/image1.png" alt="login" width="300" />  
+  <img src="./assets/screenshots/image2.png" alt="register" width="300" />
+  <img src="./assets/screenshots/image3.png" alt="cart" width="300" />
+<img src="./assets/screenshots/image4.png" alt="cart" width="300" />
 </p>
 
 
