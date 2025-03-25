@@ -10,21 +10,21 @@ class PlaylistProvider extends ChangeNotifier {
       songName: "BAD FUNK",
       artistName: "SayFalse",
       albumArtImagePath: "assets/images/image1.jpg",
-      audioPath: "assets/audio/BAD FUNK.mp3",
+      audioPath: "audio/BAD FUNK.mp3",
     ),
     // song 2
     Song(
       songName: "never meant to belong",
       artistName: "Shirō Sagisu",
       albumArtImagePath: "assets/images/image2.jpg",
-      audioPath: "assets/audio/never meant to belong.mp3",
+      audioPath: "audio/never meant to belong.mp3",
     ),
     // song 3
     Song(
       songName: "zahmat ha",
       artistName: "pishro",
       albumArtImagePath: "assets/images/pishro.jpg",
-      audioPath: "assets/audio/zahmat.mp3",
+      audioPath: "audio/zahmat.mp3",
     ),
   ];
   // current song playing index
@@ -68,9 +68,51 @@ class PlaylistProvider extends ChangeNotifier {
   }
 
   // pause or resume
-  // seek to a specific position in the current song
-  // play next song
-  // play previous song
+  void pauseOrResume() async {
+    if (_isPlaying) {
+      pause();
+    } else {
+      resume();
+    }
+    notifyListeners();
+  }
+
+// seek to a specific position in the current song
+  void seek(Duration position) async {
+    await _audioPlayer.seek(position);
+  }
+
+// play next song
+  void playNextSong() {
+    if (_currentSongIndex != null) {
+      if (_currentSongIndex < _playlist.length - 1) {
+        // go to the next song if it's not the last song
+        currentSongIndex = _currentSongIndex + 1;
+      } else {
+        // if it's the last song, loop back to the first song
+        currentSongIndex = 0;
+      }
+    }
+  }
+
+// play previous song
+  void playPreviousSong() async {
+    // if more than 2 seconds have passed, restart the current song
+    if (_currentDuration.inSeconds > 2) {
+      // restart the current song
+      // (code to restart the current song should be added here)
+    }
+    // if it's within first 2 second of the song, go to previous song
+    else {
+      if (_currentSongIndex! > 0) {
+        currentSongIndex = _currentSongIndex! - 1;
+      } else {
+        // if it's the first song, loop back to last song
+        currentSongIndex = _playlist.length - 1;
+      }
+    }
+  }
+
   // list to duration
   void listenToDuration() {
     // listen for total duration
@@ -86,7 +128,9 @@ class PlaylistProvider extends ChangeNotifier {
     });
 
     // listen for song completion
-    _audioPlayer.onPlayerComplete.listen((event) {});
+    _audioPlayer.onPlayerComplete.listen((event) {
+      playNextSong();
+    });
   }
   // dispose audio plan
   /*
@@ -95,6 +139,9 @@ class PlaylistProvider extends ChangeNotifier {
 
   List<Song> get playlist => _playlist;
   int get currentSongIndex => _currentSongIndex;
+  bool get isPlaying => _isPlaying;
+  Duration get currentDuration => _currentDuration;
+  Duration get totalDuration => _totalDuration;
 
 /*
   SETTERS
@@ -102,6 +149,9 @@ class PlaylistProvider extends ChangeNotifier {
   set currentSongIndex(int newIndex) {
     // update current song index
     _currentSongIndex = newIndex;
+    if (newIndex != null) {
+      play(); //play song at new index
+    }
 
     // update UI
     notifyListeners();
