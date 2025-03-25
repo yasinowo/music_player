@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:music_player/components/neu_box.dart';
-import 'package:music_player/model/playlist_model.dart';
+import 'package:music_player/model/playlist_provider.dart';
 import 'package:music_player/theme/text_style.dart';
 import 'package:provider/provider.dart';
 

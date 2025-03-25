@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:music_player/model/playlist_model.dart';
+import 'package:music_player/model/playlist_provider.dart';
 import 'package:music_player/pages/home_page.dart';
 import 'package:music_player/test.dart';
 import 'package:music_player/theme/light_mod.dart';
