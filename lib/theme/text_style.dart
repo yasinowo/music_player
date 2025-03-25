@@ -5,6 +5,15 @@ TextStyle drawerStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
-TextStyle bodyTextStyle = TextStyle(
-  fontSize: 16,
+TextStyle titelNeuStyle = TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.bold,
+);
+
+TextStyle bodyMediumStyle = TextStyle(
+  fontSize: 22,
+  fontWeight: FontWeight.bold,
+);
+TextStyle bodySmallStyle = TextStyle(
+  fontSize: 18,
 );
