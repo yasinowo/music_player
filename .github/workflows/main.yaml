@@ -31,18 +31,12 @@ jobs:
       - name: Build APK
         run: flutter build apk --release --split-per-abi
 
-      - name: Generate Release Notes
-        id: generate_release_notes
-        uses: ffurrer2/generate-release-notes@v1.8.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Release APK
         uses: softprops/action-gh-release@v1
         with:
           files: build/app/outputs/apk/release/app-*.apk
           name: Release APK ${{ github.run_number }}
           tag_name: v${{ github.run_number }}
-          body: ${{ steps.generate_release_notes.outputs.release_notes }}
+          body: "Release APK build number ${{ github.run_number }} "
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
