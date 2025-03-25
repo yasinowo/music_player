@@ -1,5 +1,18 @@
 # music_player
+---  
 
+## 📸 اسکرین‌شات‌ها  
+
+<p align="center">
+  <img src="./assets/screenshots/image1" alt="login" width="300" />  
+  <img src="./assets/screenshots/image2" alt="register" width="300" />
+  <img src="./assets/screenshots/image3" alt="cart" width="300" />
+<img src="./assets/screenshots/image4" alt="cart" width="300" />
+</p>
+
+
+
+---  
 A new Flutter project.
 
 ## Getting Started
